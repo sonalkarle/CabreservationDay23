@@ -45,7 +45,7 @@ namespace Cabreservation
                 totalFare += TotalFareForSingleRidereturn(ride);
                 numOfRides += 1;
             }
-            averagePerRide = totalFare / numOfRides;
+           
             return totalFare;
         }
         
