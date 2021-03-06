@@ -62,49 +62,6 @@ namespace TDDCabServiceTest
             Assert.AreEqual(21.5d, invoiceGeneratorNormalRide.averagePerRide);
             Assert.AreEqual(2, invoiceGeneratorNormalRide.numOfRides);
         }
-        /// <summary>
-        /// UC4: Checking fare of user u5sing valid userID
-        /// </summary>
-        [Test]
-        public void GivenValidUserId_GenerateInvoice()
-        {
-            Ride ride1 = new Ride(2, 2);
-            Ride ride2 = new Ride(2, 1);
-          
-            rideRepository.AddRideRepository("XYZ", ride1);
-            rideRepository.AddRideRepository("XYZ", ride2);
-           
-            Assert.AreEqual(43.0d, invoiceGeneratorNormalRide.TotalFareForMultipleRidesreturn(rideRepository.returnListByUserId("XYZ")));
-            Assert.AreEqual(21.5d, invoiceGeneratorNormalRide.averagePerRide);
-            Assert.AreEqual(2, invoiceGeneratorNormalRide.numOfRides);
-        }
-        /// <summary>
-        /// UC4.1: Cheking fare of user using Invalid USerID
-        /// </summary>
-        [Test]
-        public void GivenInValidUserId_GenerateInvoice()
-        {
-            Ride ride1 = new Ride(1, 1);
-            Ride ride2 = new Ride(2, 1);
-            
-            rideRepository.AddRideRepository("XYZ", ride1);
-            rideRepository.AddRideRepository("XYZ", ride2);
-           
-            var Exception = Assert.Throws<InvoiceGeneratorException>(() => invoiceGeneratorNormalRide.TotalFareForMultipleRidesreturn(rideRepository.returnListByUserId("PQR")));
-            Assert.AreEqual(Exception.type, InvoiceGeneratorException.ExceptionType.INVALID_USER_ID);
-        }
-
-        [Test]
-        [TestCase(2, 4)]
-        
-        public void GivenTimeAndDistance_calculatePremiumFare(double distance, double time)
-        {
-            InvoiceGenerator invoiceGeneratorPremium = new InvoiceGenerator(InvoiceGenerator.ServiceType.PREMIUM_RIDE);
-            Ride ride = new Ride(distance, time);
-            int output = 38;
-            Assert.AreEqual(output, invoiceGeneratorPremium.TotalFareForSingleRidereturn(ride));
-        }
-
-
+       
     }
 }
