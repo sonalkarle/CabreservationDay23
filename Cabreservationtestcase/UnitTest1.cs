@@ -74,9 +74,9 @@ namespace TDDCabServiceTest
             rideRepository.AddRideRepository("XYZ", ride1);
             rideRepository.AddRideRepository("XYZ", ride2);
            
-            Assert.AreEqual(43.0d, invoiceGeneratorNormalRide.TotalFareForMultipleRidesreturn(rideRepository.returnListByUserId("XYZ")));
-            Assert.AreEqual(21.5d, invoiceGeneratorNormalRide.averagePerRide);
-            Assert.AreEqual(2, invoiceGeneratorNormalRide.numOfRides);
+            Assert.AreEqual(21.0d, invoiceGeneratorNormalRide.TotalFareForMultipleRidesreturn(rideRepository.returnListByUserId("XYZ")));
+            Assert.AreEqual(21.0d, invoiceGeneratorNormalRide.averagePerRide);
+            Assert.AreEqual(1, invoiceGeneratorNormalRide.numOfRides);
         }
         /// <summary>
         /// UC4.1: Cheking fare of user using Invalid USerID

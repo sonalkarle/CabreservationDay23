@@ -33,21 +33,7 @@ namespace Cabreservation
             totalFare = 0;
             numOfRides = 0;
         }
-        /// <summary>
-        /// Returns the total fare for multiple rides.
-        /// </summary>
-        /// <param name="rides">The rides.</param>
-        /// <returns></returns>
-        public double TotalFareForMultipleRidesreturn(List<Ride> rides)
-        {
-            foreach (Ride ride in rides)
-            {
-                totalFare += TotalFareForSingleRidereturn(ride);
-                numOfRides += 1;
-            }
-            averagePerRide = totalFare / numOfRides;
-            return totalFare;
-        }
+       
         
         public double TotalFareForSingleRidereturn(Ride ride)
         {
